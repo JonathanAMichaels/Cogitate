@@ -144,6 +144,8 @@ grid dimensions).
 - **[docs/SYNTHESIS.md](docs/SYNTHESIS.md)** — the theoretical framework: how this
   task probes structure learning, how the single-tile-flip manipulation works,
   and the predictions / models that follow.
+- **[docs/EXPERIMENTAL_PLAN.md](docs/EXPERIMENTAL_PLAN.md)** — the planned studies,
+  the literature gap they fill, our contribution, and the analysis/power plan.
 - **[src/game/flips.js](src/game/flips.js)** — the flip-informativeness engine:
   scores every single-tile flip by how much it dissociates the counting heuristic
   from the true rule (for selecting flips in the next experimental phase).
