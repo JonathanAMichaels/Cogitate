@@ -1,0 +1,23 @@
+{
+  "name": "cogitate",
+  "version": "0.1.0",
+  "description": "Contiguity-ratio judgment game for studying rule learning and position evaluation.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@jspsych-contrib/plugin-pipe": "^0.5.0",
+    "@jspsych/plugin-html-button-response": "^2.1.0",
+    "@jspsych/plugin-survey-text": "^2.1.0",
+    "jspsych": "^8.2.1"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  }
+}

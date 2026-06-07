@@ -1,0 +1,162 @@
+/* Cogitate — game styling. Layered on top of jspsych.css. */
+
+:root {
+  --board: 480px; /* width shared by the grid, top bar, and answer bar */
+  --bar-h: 46px; /* clickable answer-bar height */
+}
+
+html {
+  color-scheme: light; /* don't let the OS/browser flip us into dark mode */
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1a1a;
+  background: #b8b8b8;
+}
+.jspsych-display-element {
+  min-height: 100vh;
+}
+.jspsych-content {
+  max-width: 900px;
+}
+
+/* --- Instructions / text screens ----------------------------------------- */
+.gs-instructions {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.5;
+}
+.gs-instructions h1 {
+  text-align: center;
+}
+
+/* --- Trial layout -------------------------------------------------------- */
+.gs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  user-select: none;
+}
+
+.gs-prompt {
+  font-size: 1.05rem;
+}
+
+/* --- Top bar: running score + countdown ---------------------------------- */
+.gs-topbar {
+  width: var(--board);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.gs-score {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.gs-timerbar {
+  flex: 1;
+  height: 14px;
+  background: #e8e8e8;
+  border: 1px solid #777;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.gs-timerfill {
+  width: 100%;
+  height: 100%;
+  background: #2ec27e; /* green, shifts to red as time runs out (set in JS) */
+}
+
+/* Researcher-only metric readout (piloting). */
+.gs-debug {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  color: #444;
+  background: #00000010;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+/* --- Grid ---------------------------------------------------------------- */
+.gs-grid {
+  display: grid;
+  width: var(--board);
+  height: var(--board);
+  gap: 2px;
+  background: #888; /* shows through as gridlines */
+  padding: 2px;
+  border: 2px solid #333;
+}
+.gs-cell {
+  width: 100%;
+  height: 100%;
+}
+.gs-black {
+  background: #111;
+}
+.gs-white {
+  background: #fff;
+}
+
+/* --- Answer bar (click to answer) --------------------------------------- */
+.gs-bar {
+  position: relative;
+  width: var(--board);
+  height: var(--bar-h);
+  border-radius: 6px;
+  border: 2px solid #333;
+  background: linear-gradient(to right, #fff 0%, #111 100%);
+  cursor: pointer;
+}
+
+/* Markers are positioned by left:%, centered on that point. */
+.gs-marker {
+  position: absolute;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.gs-marker[hidden] {
+  display: none;
+}
+
+/* Participant's answer: a slim line. */
+.gs-resp {
+  top: -7px;
+  height: calc(100% + 14px);
+  width: 3px;
+  background: #2b6cff;
+  box-shadow: 0 0 0 1.5px #fff;
+}
+
+/* Correct answer: prominent thick bar with a downward arrow. */
+.gs-correct {
+  top: -16px;
+  height: calc(100% + 32px);
+  width: 7px;
+  background: #ff7a00;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.65);
+}
+.gs-correct-arrow {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid #ff7a00;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.6));
+}
+
+/* --- Feedback text (points) --------------------------------------------- */
+.gs-feedback {
+  min-height: 1.6em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+}
