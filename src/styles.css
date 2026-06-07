@@ -1,8 +1,11 @@
 /* Cogitate — game styling. Layered on top of jspsych.css. */
 
 :root {
-  --board: 480px; /* width shared by the grid, top bar, and answer bar */
-  --bar-h: 46px; /* clickable answer-bar height */
+  /* Width shared by the grid, top bar, and answer bar. Scales to fit small
+     screens (phones): bounded by viewport width AND height so the square board
+     always fits without scrolling. */
+  --board: min(480px, 92vw, 68vh);
+  --bar-h: 48px; /* clickable answer-bar height (also a comfy touch target) */
 }
 
 html {
@@ -12,12 +15,20 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #1a1a1a;
   background: #b8b8b8;
+  margin: 0;
 }
 .jspsych-display-element {
   min-height: 100vh;
+  /* respect iPhone notch / home-indicator safe areas */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  box-sizing: border-box;
 }
 .jspsych-content {
   max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 12px;
 }
 
 /* --- Instructions / text screens ----------------------------------------- */
@@ -36,8 +47,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: clamp(12px, 3vh, 20px); /* tighter spacing on short screens */
   user-select: none;
+  -webkit-user-select: none;
 }
 
 .gs-prompt {
@@ -110,6 +122,7 @@ body {
   border: 2px solid #333;
   background: linear-gradient(to right, #fff 0%, #111 100%);
   cursor: pointer;
+  touch-action: manipulation; /* no double-tap zoom delay on tap-to-answer */
 }
 
 /* Markers are positioned by left:%, centered on that point. */
