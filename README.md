@@ -139,6 +139,19 @@ grid dimensions).
 4. `npm run build` and host `dist/` on any static host (GitHub Pages, Netlify).
    Each completed session uploads its CSV to your OSF project automatically.
 
+## Research & analysis
+
+- **[docs/SYNTHESIS.md](docs/SYNTHESIS.md)** — the theoretical framework: how this
+  task probes structure learning, how the single-tile-flip manipulation works,
+  and the predictions / models that follow.
+- **[src/game/flips.js](src/game/flips.js)** — the flip-informativeness engine:
+  scores every single-tile flip by how much it dissociates the counting heuristic
+  from the true rule (for selecting flips in the next experimental phase).
+- **[analysis/](analysis/)** — Python pipeline that simulates learner agents and
+  fits the structure-learning weight `w(t)`, validating (via parameter recovery /
+  power analysis) that the design can measure learning in people. Run
+  `node scripts/export-stimuli.js` then see `analysis/README.md`.
+
 ## Roadmap (not yet wired into the default timeline)
 
 - **Flip phase:** re-present earlier grids color-inverted and re-ask. The hooks

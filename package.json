@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "export-stimuli": "node scripts/export-stimuli.js"
   },
   "dependencies": {
     "@jspsych-contrib/plugin-pipe": "^0.5.0",
