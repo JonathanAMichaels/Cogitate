@@ -3,3 +3,6 @@ dist/
 .DS_Store
 *.local
 .vite/
+
+# Local research library (PDFs) — kept on disk / Dropbox, not in the public repo.
+papers/
