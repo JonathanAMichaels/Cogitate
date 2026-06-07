@@ -4,6 +4,9 @@ A simple, instrumented judgment game for studying how people **evaluate novel
 positions** and **learn and generalize hidden rules** — inspired by complex
 games like chess, distilled to a minimal task.
 
+**▶ Live:** https://jonathanamichaels.github.io/Cogitate/
+(auto-deploys from `main` via GitHub Actions; data → DataPipe → OSF.)
+
 ## The task
 
 On each trial the participant sees a grid of black/white squares and judges the
