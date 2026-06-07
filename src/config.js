@@ -55,6 +55,6 @@ export const CONFIG = {
   // --- Data logging ---------------------------------------------------------
   // DataPipe (https://pipe.jspsych.org) experiment ID, linked to an OSF project.
   // Leave null to skip the online upload (local CSV download still happens).
-  dataPipeExperimentId: null,
+  dataPipeExperimentId: 'uVLdgfoJkUag',
   localSaveCsv: true,
 };
